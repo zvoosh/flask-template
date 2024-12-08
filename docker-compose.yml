@@ -1,0 +1,19 @@
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+
+#Docker Compose is most useful to start multiple Docker containers at the same time, specifying configuration values for them and dependencies between them.
+
+# How to run the Docker Compose services -> docker compose up <<<<<<<----------
+
+# Rebuilding the Docker image --->>> docker compose up --build --force-recreate --no-deps web
+
+# How to run commands inside a Docker container --->>>> docker compose exec web flask db migrate
+# docker compose: uses the docker compose part of the docker executable
+# exec: used to run a command in a specific Docker Compose service
+# web: which Docker Compose Service to run the command in
+# flask db migrate: the command you want to run
